@@ -6,7 +6,7 @@
 /*   By: stigkas <stigkas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 12:00:26 by stigkas           #+#    #+#             */
-/*   Updated: 2023/10/31 15:51:49 by stigkas          ###   ########.fr       */
+/*   Updated: 2023/11/01 10:53:14 by stigkas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,38 +46,37 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 
 char	**ft_split(char const *s, char c)
 {
-	size_t	j;
 	size_t	i;
-	size_t	counter;
+	size_t	cn;
 	char	**res;
 	size_t	start;
 
-	j = 0;
 	i = 0;
-	counter = 1;
+	cn = 1;
 	while (s[i] != '\0')
 	{
 		if (s[i] == c)
-			counter++;
+			cn++;
 	}
-	res = (char **)malloc((counter + 1) * sizeof(char));
+	res = (char **)malloc((cn + 1) * sizeof(char));
 	if (!res)
 		return (NULL);
 	i = 0;
+	cn = 0;
 	while (s[i] != '\0')
 	{
 		start = i;
 		while (s[i] && s[i] != c)
 			i++;
-		res[j] = (char *)malloc(i - start + 1);
-		if (!res[j])
+		res[cn] = (char *)malloc(i - start + 1);
+		if (!res[cn])
 			return (NULL);
-		ft_strlcpy(res[j], s + start, i - start);
-		res[j++][i - start] = '\0';
+		ft_strlcpy(res[cn], s + start, i - start);
+		res[cn++][i - start] = '\0';
 		if (s[i])
 			i++;
 	}
-	res[j] = NULL;
+	res[counter] = NULL;
 	return (res);
 }
 
@@ -113,6 +112,5 @@ int	main(void)
 		}
 		freesplitresult(result);
 	}
-
-    return (0);
+	return (0);
 }
