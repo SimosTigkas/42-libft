@@ -6,44 +6,38 @@
 /*   By: stigkas <stigkas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 13:32:48 by stigkas           #+#    #+#             */
-/*   Updated: 2023/11/01 14:19:46 by stigkas          ###   ########.fr       */
+/*   Updated: 2023/11/02 14:04:01 by stigkas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+size_t	ft_strlen(const char *str)
 {
 	size_t	i;
 
 	i = 0;
-	while (s[i] != '\0')
+	while (str[i] != '\0')
 		i++;
 	return (i);
 }
 
-char	*ft_strcpy(char *dest, const char *src)
+char	*ft_strdup(const char *src)
 {
-	int	i;
+	char	*dest;
+	int		i;
 
 	i = 0;
-	while (src[i] != '\0')
+	dest = (char *)(malloc(ft_strlen(src) + 1));
+	if (dest == 0)
+		return (0);
+	while (*(src + i) != '\0')
 	{
-		dest[i] = src[i];
+		*(dest + i) = *(src + i);
 		i++;
 	}
-	dest[i] = '\0';
+	*(dest + i) = '\0';
 	return (dest);
-}
-
-char	*ft_strdup(const char *s1)
-{
-	char	*copy;
-
-	copy = (char *)malloc((ft_strlen(s1) + 1) * sizeof(char));
-	if (copy == NULL)
-		return (0);
-	return (ft_strcpy(copy, s1));
 }
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))

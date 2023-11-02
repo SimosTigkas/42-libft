@@ -6,18 +6,18 @@
 /*   By: stigkas <stigkas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 12:00:26 by stigkas           #+#    #+#             */
-/*   Updated: 2023/11/02 08:25:22 by stigkas          ###   ########.fr       */
+/*   Updated: 2023/11/02 13:58:07 by stigkas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *str)
+size_t	ft_strlen(const char *s)
 {
 	size_t	i;
 
 	i = 0;
-	while (str[i] != '\0')
+	while (s[i] != '\0')
 		i++;
 	return (i);
 }
@@ -33,7 +33,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 			i++;
 		return (i);
 	}
-	while (i < dstsize && src[i] != '\0')
+	while (i < dstsize - 1 && src[i] != '\0')
 	{
 		dst[i] = src[i];
 		i++;
@@ -44,7 +44,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 	return (i);
 }
 
-size_t	count_the_strings(const char *s, char c)
+static size_t	count_the_strings(const char *s, char c)
 {
 	size_t	count;
 	size_t	i;
