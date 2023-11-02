@@ -6,7 +6,7 @@
 /*   By: stigkas <stigkas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 17:39:32 by stigkas           #+#    #+#             */
-/*   Updated: 2023/10/31 18:20:23 by stigkas          ###   ########.fr       */
+/*   Updated: 2023/11/01 07:55:21 by stigkas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 	s_len = ft_strlen(s);
 	i = 0;
-
 	if (s == NULL || start >= s_len || start < 0 || len <= 0)
 		return (NULL);
 	if (s_len - start > len)
@@ -48,19 +47,4 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	}
 	s1[i] = '\0';
 	return (s1);
-}
-
-int	main(void)
-{
-	const char		src[] = "Hello";
-	char			*sbstr = ft_substr(src , 0, 3);
-
-	if (sbstr != NULL)
-	{
-		printf("Substring: %s\n", sbstr);
-		free(sbstr);
-	}
-	else
-		printf("Invalid start or length provided.\n");
-	return (0);
 }
