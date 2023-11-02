@@ -6,69 +6,62 @@
 /*   By: stigkas <stigkas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 08:33:59 by stigkas           #+#    #+#             */
-/*   Updated: 2023/11/02 11:04:19 by stigkas          ###   ########.fr       */
+/*   Updated: 2023/11/02 12:15:42 by stigkas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_fillthestring(int i, char *str)
+static void	ft_fill_res(int size, int offset, int n, char *res)
 {
-	char	temp;
-	int		start;
-	int		end;
-
-	start = 0;
-	end = i - 1;
-	while (start < end)
+	while (size > offset)
 	{
-		temp = str[start];
-		str[start] = str[end];
-		str[end] = temp;
-		start++;
-		end--;
+		res[size - 1] = n % 10 + '0';
+		n = n / 10;
+		size--;
 	}
-	return (str);
 }
 
-int	num_len(int n)
+static int	num_len(int n)
 {
-	int	c;
+	int	size;
 
-	c = 0;
-	while (n > 0)
+	size = 0;
+	if (n <= 0)
+		size++;
+	while (n != 0)
 	{
-		n /= 10;
-		c++;
+		n = n / 10;
+		size++;
 	}
-	return (c);
+	return (size);
 }
 
 char	*ft_itoa(int n)
 {
-	char	*str;
-	int		i;
-	int		cl;
-	int		start;
-	int		end;
+	int		offset;
+	int		size;
+	char	*res;
 
-	i = 0;
-	cl = num_len(n);
-	str = (char *)malloc((cl + 1) * sizeof(char));
-	if (!str)
+	offset = 0;
+	size = num_len(n);
+	res = (char *)malloc(sizeof(char) * size + 1);
+	if (!res)
 		return (NULL);
-	if (n == 0)
-		str[i++] = '0';
+	if (n == -2147483648)
+	{
+		res[0] = '-';
+		res[1] = '2';
+		n = 147483648;
+		offset = 2;
+	}
 	if (n < 0)
 	{
-		str[i++] = '-';
+		res[0] = '-';
+		offset = 1;
 		n = -n;
 	}
-	while (n != 0)
-	{
-		str[i++] = '0' + (n % 10);
-		n /= 10;
-	}
-	str[i] = '\0';
-	return (ft_fillthestring(i, str));
+	ft_fill_res(size, offset, n, res);
+	res[size] = '\0';
+	return (res);
 }
