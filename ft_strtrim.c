@@ -6,79 +6,11 @@
 /*   By: stigkas <stigkas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 17:46:48 by stigkas           #+#    #+#             */
-/*   Updated: 2023/11/02 13:36:16 by stigkas          ###   ########.fr       */
+/*   Updated: 2023/11/06 13:21:35 by stigkas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-size_t	ft_strlen(const char *s)
-{
-	size_t	i;
-
-	i = 0;
-	while (s[i] != '\0')
-		i++;
-	return (i);
-}
-
-char	*ft_strchr(const char *str, int c)
-{
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
-	{
-		if (str[i] == (char)c)
-		{
-			return ((char *)&str[i]);
-		}
-		i++;
-	}
-	if (c == '\0')
-		return ((char *)&str[i]);
-	return (NULL);
-}
-
-char	*ft_strdup(const char *src)
-{
-	char	*dest;
-	int		i;
-
-	i = 0;
-	dest = (char *)(malloc(ft_strlen(src) + 1));
-	if (dest == 0)
-		return (0);
-	while (*(src + i) != '\0')
-	{
-		*(dest + i) = *(src + i);
-		i++;
-	}
-	*(dest + i) = '\0';
-	return (dest);
-}
-
-size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
-{
-	size_t	i;
-
-	i = 0;
-	if (dstsize == 0)
-	{
-		while (src[i])
-			i++;
-		return (i);
-	}
-	while (i < dstsize - 1 && src[i] != '\0')
-	{
-		dst[i] = src[i];
-		i++;
-	}
-	dst[i] = '\0';
-	while (src[i] != '\0')
-		i++;
-	return (i);
-}
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
