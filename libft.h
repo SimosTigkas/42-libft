@@ -6,7 +6,7 @@
 /*   By: stigkas <stigkas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 15:57:48 by stigkas           #+#    #+#             */
-/*   Updated: 2023/11/02 14:50:25 by stigkas          ###   ########.fr       */
+/*   Updated: 2023/11/06 12:57:43 by stigkas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,22 +46,13 @@ char			*ft_substr(const char *s, unsigned int start, size_t len);
 char			*ft_strjoin(char const *s1, char const *s2);
 char			*ft_strtrim(char const *s1, char const *set);
 char			**ft_split(char const *s, char c);
-static void		freesplitresult(char **result);
-static int		ft_islower(int c);
-static int		ft_isupper(int c);
-static int		ft_isspace(char c);
 void			ft_putchar_fd(char c, int fd);
 void			ft_putstr_fd(char *s, int fd);
 void			ft_putendl_fd(char *s, int fd);
 void			ft_putnbr_fd(int n, int fd);
-static size_t	count_the_strings(const char *s, char c);
 char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void			ft_striteri(char *s, void (*f)(unsigned int, char*));
 char			*ft_itoa(int n);
-static int		num_len(int n);
-static void		ft_fill_res(int size, int offset, int n, char *res);
 void			*ft_memmove(void *dst, const void *src, size_t len);
-static char		*ft_strcpy(char *dest, const char *src);
-static char		*ft_strcat(char *dest, const char *src);
 
 #endif
