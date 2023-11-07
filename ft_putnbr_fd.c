@@ -6,7 +6,7 @@
 /*   By: stigkas <stigkas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 09:16:23 by stigkas           #+#    #+#             */
-/*   Updated: 2023/11/06 13:18:14 by stigkas          ###   ########.fr       */
+/*   Updated: 2023/11/07 15:42:16 by stigkas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,9 @@ void	ft_putnbr_fd(int n, int fd)
 	int		i;
 
 	i = 10;
-	if (n == -2147483648)
+	if (n == 0)
+		ft_putchar_fd('0', fd);
+	else if (n == -2147483648)
 		ft_putstr_fd("-2147483648", fd);
 	else
 	{
