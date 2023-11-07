@@ -34,7 +34,12 @@ FUNC = \
 	ft_strtrim.c \
 	ft_substr.c \
 	ft_tolower.c \
-	ft_toupper.c 
+	ft_toupper.c \
+	ft_lstnew.c \
+	ft_lstsize.c \
+	ft_lstlast.c \
+	ft_lstadd_front.c \
+	ft_lstadd_back.c
 
 INC =.
 
