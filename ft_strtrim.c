@@ -6,37 +6,50 @@
 /*   By: stigkas <stigkas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 17:46:48 by stigkas           #+#    #+#             */
-/*   Updated: 2023/11/06 13:21:35 by stigkas          ###   ########.fr       */
+/*   Updated: 2023/11/07 15:13:02 by stigkas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+static	char	*create_final(char const *s, int start, int len);
+
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	char	*str;
-	int		start;
-	int		end;
+	int		i;
+	int		j;
+	int		final_len;
+	char	*final;
 
 	if (s1 == NULL || set == NULL)
 		return (NULL);
-	start = 0;
-	end = ft_strlen(s1);
-	while (ft_strchr(set, s1[start]) && s1[start])
-		start++;
-	while (ft_strchr(set, s1[end - 1]) && end > 0)
-		end--;
-	if (start >= end)
-	{
-		str = (char *)malloc(1);
-		if (str == NULL)
-			return (NULL);
-		str[0] = '\0';
-		return (str);
-	}
-	str = (char *)malloc(end - start + 2);
-	if (str == NULL)
+	i = 0;
+	j = ft_strlen(s1);
+	while (s1[i] != '\0' && ft_strchr(set, s1[i]))
+		i++;
+	while (j >= 0 && ft_strchr(set, s1[j]))
+		j--;
+	final_len = j - i + 1;
+	if (final_len < 0)
+		final_len = 0;
+	final = create_final(s1, i, final_len);
+	return (final);
+}
+
+static	char	*create_final(char const *s, int start, int len)
+{
+	char	*final;
+	int		i;
+
+	i = 0;
+	final = malloc(len + 1);
+	if (!final)
 		return (NULL);
-	ft_strlcpy(str, &s1[start], end - start + 1);
-	return (str);
+	while (i < len && len > 0)
+	{
+		final[i] = s[start + i];
+		i++;
+	}
+	final[len] = '\0';
+	return (final);
 }
