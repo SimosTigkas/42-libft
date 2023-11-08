@@ -34,16 +34,24 @@ FUNC = \
 	ft_strtrim.c \
 	ft_substr.c \
 	ft_tolower.c \
-	ft_toupper.c \
+	ft_toupper.c 
+
+BONUS = \
 	ft_lstnew.c \
 	ft_lstsize.c \
 	ft_lstlast.c \
 	ft_lstadd_front.c \
-	ft_lstadd_back.c
+	ft_lstadd_back.c \
+	ft_lstdelone.c \
+	ft_lstclear.c \
+	ft_lstiter.c \
+	ft_lstmap.c
 
 INC =.
 
 OBJ = $(FUNC:.c=.o)
+
+BONUS_OBJ = $(BONUS:.c=.o)
 
 CFLAGS = -Wall -Wextra -Werror
 
@@ -56,11 +64,14 @@ $(NAME)	:	$(OBJ)
 all: $(NAME)
 
 clean:
-		rm -f $(OBJ)
+		rm -f $(OBJ) $(BONUS_OBJ)
 
 fclean:	clean
 		rm -f $(NAME)
 
 re:	fclean all
 
-.PHONY: all clean fclean re
+bonus: $(OBJ) $(BONUS_OBJ)
+	ar crs $(NAME) $(OBJ) $(BONUS_OBJ)
+
+.PHONY: all clean fclean re bonus
