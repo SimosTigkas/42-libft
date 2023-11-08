@@ -6,19 +6,19 @@
 /*   By: stigkas <stigkas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 16:53:13 by stigkas           #+#    #+#             */
-/*   Updated: 2023/11/06 13:20:15 by stigkas          ###   ########.fr       */
+/*   Updated: 2023/11/08 16:48:09 by stigkas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *restrict dst, const char *restrict src, size_t dstsize)
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
 	size_t	dst_len;
 	size_t	src_len;
 
 	if (!dstsize)
-		return (0);
+		return (ft_strlen(src));
 	src_len = ft_strlen(src);
 	dst_len = ft_strlen(dst);
 	if (dst_len >= dstsize)

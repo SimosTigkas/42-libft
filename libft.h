@@ -6,7 +6,7 @@
 /*   By: stigkas <stigkas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 15:57:48 by stigkas           #+#    #+#             */
-/*   Updated: 2023/11/08 11:41:25 by stigkas          ###   ########.fr       */
+/*   Updated: 2023/11/08 15:29:04 by stigkas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <string.h>
 # include <ctype.h>
 # include <stddef.h>
+# include <stdio.h>
 
 typedef struct s_list
 {
