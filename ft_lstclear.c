@@ -6,7 +6,7 @@
 /*   By: stigkas <stigkas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 08:38:08 by stigkas           #+#    #+#             */
-/*   Updated: 2023/11/08 09:07:45 by stigkas          ###   ########.fr       */
+/*   Updated: 2023/11/08 09:10:07 by stigkas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,4 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 		*lst = temp;
 		free(*lst);
 	}
-	*lst = NULL;
 }
