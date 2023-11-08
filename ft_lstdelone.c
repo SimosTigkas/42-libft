@@ -6,7 +6,7 @@
 /*   By: stigkas <stigkas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:51:42 by stigkas           #+#    #+#             */
-/*   Updated: 2023/11/08 08:28:21 by stigkas          ###   ########.fr       */
+/*   Updated: 2023/11/08 09:46:39 by stigkas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,4 +20,3 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *))
 	free(lst);
 	lst = NULL;
 }
-
