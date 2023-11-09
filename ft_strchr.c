@@ -6,7 +6,7 @@
 /*   By: stigkas <stigkas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 16:52:17 by stigkas           #+#    #+#             */
-/*   Updated: 2023/11/02 13:39:31 by stigkas          ###   ########.fr       */
+/*   Updated: 2023/11/09 15:49:21 by stigkas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_strchr(const char *str, int c)
 	int	i;
 
 	i = 0;
-	while (str[i] != '\0')
+	while (str[i])
 	{
 		if (str[i] == (char)c)
 		{
@@ -25,7 +25,7 @@ char	*ft_strchr(const char *str, int c)
 		}
 		i++;
 	}
-	if (c == '\0')
+	if ((char)c == '\0')
 		return ((char *)&str[i]);
 	return (NULL);
 }
