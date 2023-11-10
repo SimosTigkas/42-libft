@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-static	char	*create_final(char const *s, int start, int len);
+static char	*create_final(char const *s, int start, int len);
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
@@ -36,7 +36,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	return (final);
 }
 
-static	char	*create_final(char const *s, int start, int len)
+static char	*create_final(char const *s, int start, int len)
 {
 	char	*final;
 	int		i;

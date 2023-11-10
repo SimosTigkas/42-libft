@@ -6,7 +6,7 @@
 /*   By: stigkas <stigkas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 09:40:59 by stigkas           #+#    #+#             */
-/*   Updated: 2023/11/10 12:17:13 by stigkas          ###   ########.fr       */
+/*   Updated: 2023/11/10 12:51:51 by stigkas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		new_node = ft_lstnew(f(lst->content));
 		if (!(new_node))
 		{
-			ft_lstclear(&new_list, del);
+			ft_lstclear(&(new_list), del);
 			return (NULL);
 		}
 		ft_lstadd_back(&new_list, new_node);
