@@ -6,7 +6,7 @@
 /*   By: stigkas <stigkas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 09:40:59 by stigkas           #+#    #+#             */
-/*   Updated: 2023/11/10 12:51:51 by stigkas          ###   ########.fr       */
+/*   Updated: 2023/11/10 13:59:18 by stigkas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,10 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	if (!lst || !f || !del)
 		return (NULL);
 	new_list = NULL;
+	new_list = ft_lstnew(f(lst->content));
+	if (!(new_list))
+		return (NULL);
+	new_node = NULL;
 	while (lst)
 	{
 		new_node = ft_lstnew(f(lst->content));
