@@ -6,11 +6,12 @@
 /*   By: stigkas <stigkas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 16:37:36 by stigkas           #+#    #+#             */
-/*   Updated: 2023/11/08 16:30:40 by stigkas          ###   ########.fr       */
+/*   Updated: 2023/11/10 16:08:44 by stigkas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 static int	ft_isspace(char c)
 {
