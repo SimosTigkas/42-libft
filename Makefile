@@ -58,20 +58,24 @@ CFLAGS = -Wall -Wextra -Werror
 %.o: %.c
 	gcc $(CFLAGS) -I$(INC) -c $< -o $@ 
 
-$(NAME)	:	$(OBJ)
-			ar crs $(NAME) $(OBJ)
+$(NAME): $(OBJ)
+	ar crs $(NAME) $(OBJ)
 
 all: $(NAME)
 
 clean:
-		rm -f $(OBJ) $(BONUS_OBJ)
+	rm -f $(OBJ) $(BONUS_OBJ)
+	@rm -f .bonus
 
 fclean:	clean
-		rm -f $(NAME)
+	rm -f $(NAME)
 
 re:	fclean all
 
-bonus: $(OBJ) $(BONUS_OBJ)
+bonus: .bonus
+
+.bonus: $(NAME) $(BONUS_OBJ)
 	ar crs $(NAME) $(OBJ) $(BONUS_OBJ)
+	@touch .bonus
 
 .PHONY: all clean fclean re bonus
