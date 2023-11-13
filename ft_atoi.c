@@ -6,7 +6,7 @@
 /*   By: stigkas <stigkas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 16:37:36 by stigkas           #+#    #+#             */
-/*   Updated: 2023/11/10 16:44:45 by stigkas          ###   ########.fr       */
+/*   Updated: 2023/11/13 15:01:47 by stigkas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int	ft_atoi(const char *str)
 	int		i;
 	long	nb;
 	int		neg;
+	long	prev;
 
 	i = 0;
 	nb = 0;
@@ -35,10 +36,11 @@ int	ft_atoi(const char *str)
 		i++;
 	while (str[i] && ft_isdigit(str[i]))
 	{
+		prev = nb;
 		nb = 10 * nb + str[i] - '0';
 		if (nb < 0 && neg < 0)
 			return (0);
-		else if ((nb < 0) && neg > 0)
+		else if (((nb < 0) || prev > nb) && neg > 0)
 			return (-1);
 		i++;
 	}
