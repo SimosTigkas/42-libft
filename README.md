@@ -1,2 +1,3 @@
 ![Add a photo](/Users/stigkas/Downloads/HiveeeerV/libfta/imges/C_logo.png)
-![C_logo](https://github.com/SimosTigkas/libft/assets/113290423/c786eaca-e21c-44bd-828a-6a55f5805011)
+
+Welcome to my libft project!! This is a project that has to do with my first library ever!! It contains functions that recreate functions that already exist and they will be used in future projects!!
